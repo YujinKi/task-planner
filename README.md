@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Task Planner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+추상적인 목표를 구체적이고 실행 가능한 작업으로 분해해주는 AI 기반 태스크 플래너입니다.
 
-## Available Scripts
+## 주요 기능
 
-In the project directory, you can run:
+- **목표 입력**: 이루고 싶은 목표를 자유롭게 입력
+- **시간 설정**: 투자할 수 있는 시간 지정 (최소 30분)
+- **AI 기반 계획 생성**: Claude AI가 목표를 시간 내에 달성 가능한 구체적인 단계로 분해
+- **시각적 플랜 표시**: 각 단계별 소요 시간과 상세 설명 제공
 
-### `npm start`
+## 기술 스택
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- React 19
+- TailwindCSS
+- Lucide React (아이콘)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- Vercel Serverless Functions
+- Anthropic Claude API (claude-sonnet-4)
 
-### `npm test`
+## 프로젝트 구조
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+task-planner/
+├── src/
+│   ├── App.js
+│   ├── components/
+│   │   └── TaskBreakdown.jsx    # 메인 컴포넌트
+│   ├── index.js
+│   └── index.css
+├── api/
+│   └── generate-plan.js         # Vercel API 핸들러
+├── public/
+├── package.json
+├── tailwind.config.js
+└── vercel.json
+```
 
-### `npm run build`
+## 설치 및 실행
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. 의존성 설치
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. 환경 변수 설정
 
-### `npm run eject`
+`.env.local` 파일을 생성하고 Anthropic API 키를 설정합니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+ANTHROPIC_API_KEY=your_api_key_here
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. 개발 서버 실행
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+브라우저에서 [http://localhost:3000](http://localhost:3000)으로 접속합니다.
 
-## Learn More
+## 배포
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Vercel을 통해 배포됩니다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+vercel
+```
 
-### Code Splitting
+## 사용 예시
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. 목표 입력: "면접 준비하기"
+2. 시간 설정: 1시간 30분
+3. "계획 생성하기" 버튼 클릭
+4. AI가 생성한 단계별 계획 확인
 
-### Analyzing the Bundle Size
+## 라이선스
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT
